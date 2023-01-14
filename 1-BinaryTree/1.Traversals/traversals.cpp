@@ -75,3 +75,39 @@ void DFSPreOrder(Node* node)
     DFSPreOrder(node->right);
 
 }
+
+// Use flag for the traveral 
+// idx = flag ? i : size - 1 -i
+// ADOBE
+std::vector<std::vector<int> > BFSZigZagTraversal(Node* node)
+{
+    std::vector<std::vector<int> > order;
+    if (!node) {
+        return order;
+    }
+
+    std::queue<Node*> q;
+    q.push(node);
+
+    bool flagL2R = true;
+
+    while (!q.empty()) {
+        int size = q.size();
+        std::vector<int> row(size);
+
+        for (int i = 0; i < size; i++) {
+            Node* node = q.front();
+            q.pop();
+            int idx = flagL2R ? i : size - 1 - i;
+            row[idx] = node->data;
+            if (node->left) {
+                q.push(node->left);
+            }
+            if (node->right) {
+                q.push(node->right);
+            }
+        }
+        order.push_back(row);
+        flagL2R = !flagL2R;
+    }
+}
