@@ -13,6 +13,18 @@ for (int i = 0; i < E; i++) {
     adj[u].push_back(v);
     adj[v].push_back(u);
 }
+DFS:
+Time Complexity: For an undirected graph, O(N) + O(2E), For a directed graph, O(N) + O(E), 
+Because for every node we are calling the recursive function once, the time taken is O(N) and 2E is for total degrees as we traverse for all adjacent nodes.
+DFS takes a time of O(V+2E). 
+
+Space Complexity: O(3N) ~ O(N), Space for dfs stack space, visited array and an adjacency list.
+
+BFS:
+Time Complexity: O(N) + O(2E), Where N = Nodes, 2E is for total degrees as we traverse all adjacent nodes.
+
+Space Complexity: O(3N) ~ O(N), Space for queue data structure visited array and an adjacency list
+
 */
 class Solution {
   private: 
