@@ -2,7 +2,15 @@
 #include <vector>
 #include <queue>
 using namespace std;
+/*
+Time Complexity: O(NxM + NxMx4) ~ O(N x M)
 
+For the worst case, all of the pixels will have the same colour, so DFS function will be called for (N x M) nodes and for every node we are traversing for 4 neighbours, so it will take O(N x M x 4) time.
+
+Space Complexity: O(N x M) + O(N x M)
+
+O(N x M) for copied input array and recursive stack space takes up N x M locations at max. 
+*/
 class Solution
 {
     void DFS(int srow, int scol, vector<vector<int> >& ans, vector<vector<int> >& image, int newColor,int delRow[], int delCol[], int iniColor) {
@@ -49,7 +57,7 @@ int main(){
 	
 // sr = 1, sc = 1, newColor = 2  	
 	Solution obj;
-	vector<vector<int>> ans = obj.floodFill(image, 1, 1, 2);
+	vector<vector<int> > ans = obj.floodFill(image, 1, 1, 2);
 	for(auto i: ans){
 		for(auto j: i)
 			cout << j << " ";
