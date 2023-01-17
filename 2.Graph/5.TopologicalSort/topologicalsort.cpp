@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <queue>
 using namespace std;
 
 /*
@@ -15,6 +16,41 @@ Space Complexity: O(2N) + O(N) ~ O(2N): O(2N) for the visited array and the stac
 */
 class Solution
 {
+
+    vector<int> topoSortBFS(int V, vector<int> adj[]) {
+        int indegree[V] = {0};
+        for (int i = 0; i < V; i++) {
+            for(auto it : adj[i]) {
+                indegree[it]++;
+            }
+        }
+
+        queue<int> q;
+        vector<int> topo;
+        for (int i = 0; i < V; i++) {
+			if (indegree[i] == 0) {
+				q.push(i);
+			}
+		}
+
+        while(!q.empty()) {
+            int node = q.front();
+            q.pop();
+            topo.push_back(node);
+			// node is in your topo sort
+			// so please remove it from the indegree
+
+            for (auto it : adj[node]) {
+                indegree[it]--;
+                if (indegree[it] == 0) {
+                    topo.push_back(it);
+                }
+            }
+
+        }
+
+
+    }
     void DFS(vector<int> adj[], int vis[], stack<int>& st, int i) {
         vis[i] = 1;
         for (auto adjL : adj[i]) {
