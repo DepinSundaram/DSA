@@ -50,6 +50,12 @@ Extra O(N*logN) for sorting the safeNodes array, where N is the number of safe n
 
 Space Complexity: O(N) + O(N) + O(N) ~ O(3N), O(N) for the indegree array, O(N) for the queue data structure used in BFS(where N = no.of nodes), and extra O(N)
 for the adjacency list to store the graph in a reversed order.
+
+
+eventualSafeNodesDFS
+Time Complexity: O(V+E)+O(V), where V = no. of nodes and E = no. of edges. There can be at most V components. So, another O(V) time complexity.
+
+Space Complexity: O(3N) + O(N) ~ O(3N): O(3N) for three arrays required during dfs calls and O(N) for recursive stack space.
 */
 
 

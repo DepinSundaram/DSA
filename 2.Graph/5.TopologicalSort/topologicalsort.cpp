@@ -57,8 +57,9 @@ class Solution
             if (!vis[adjL]) {
                 DFS(adj, vis, st, adjL);
             }
-            st.push(adjL);
         }
+        st.push(i);
+
     }
 public:
     vector<int> topoSort(int V, vector<int> adj[]) {
