@@ -59,6 +59,23 @@ class Solution
         }
 
     }
+/*
+Time Complexity: O(2^n) for generating every subset and O(k)  to insert every subset in another data structure
+ if the average length of every subset is k. Overall O(k * 2^n).
+
+Space Complexity: O(2^n * k) to store every subset of average length k. Auxiliary space is O(n)  if n is the depth of the recursion tree.
+*/
+    void PermutationsOptimized(int index, vector < int > & nums, vector < vector < int > > & ans) {
+        if (index == nums.size()) {
+            ans.push_back(nums);
+            return;
+        }
+        for (int i = index; i < nums.size(); i++) {
+          swap(nums[index], nums[i]);
+          PermutationsOptimized(index + 1, nums, ans);
+          swap(nums[index], nums[i]);
+        }
+    }
     public:
     vector < vector < int > > permute(vector<int>& candidates) {
         int size =  candidates.size();
@@ -69,6 +86,12 @@ class Solution
 
         return ans;
     }
+
+        vector < vector < int > > permuteOptimized(vector < int > & nums) {
+              vector < vector < int > > ans;
+              PermutationsOptimized(0, nums, ans);
+              return ans;
+    }
 };
 
 int main() {
@@ -78,7 +101,7 @@ int main() {
   v.push_back(2);
   v.push_back(3);
 
-  vector < vector < int > > sum = obj.permute(v);
+  vector < vector < int > > sum = obj.permuteOptimized(v);
   cout << "All Permutations are " << endl;
   for (int i = 0; i < sum.size(); i++) {
     for (int j = 0; j < sum[i].size(); j++)
