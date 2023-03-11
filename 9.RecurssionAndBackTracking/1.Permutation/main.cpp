@@ -27,6 +27,35 @@ class Solution
         }
         
     }
+/*
+All Permutations are
+1 2 3
+1 3 2
+2 1 3
+2 3 1
+3 1 2
+3 2 1
+
+Time Complexity: O(N! X N)
+
+Space Complexity: O(1)
+*/
+
+    void OptimizedSpacePermute(int idx, vector<vector<int> >& ans,
+                             vector<int>& num)
+    {
+        if (idx == num.size()) {
+            ans.push_back(num);
+            return;
+        }
+
+        for (int i = idx; i < num.size(); i++) {
+
+            swap(num[i], num[idx]);
+            OptimizedSpacePermute(idx + 1, ans, num);
+            swap(num[i], num[idx]);
+        }
+    }
     public:
     vector < vector < int > >  permute(vector <int> nums) {
         vector<int> ds;
@@ -36,7 +65,8 @@ class Solution
         for (int i = 0; i < nums.size(); ++i) {
             freq[i] = 0;
         }
-        recurPermute(ds, ans, nums, freq);
+        //recurPermute(ds, ans, nums, freq);
+        OptimizedSpacePermute(0, ans, nums);
         return ans;
     }
 
