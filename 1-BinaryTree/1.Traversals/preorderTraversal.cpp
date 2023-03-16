@@ -31,7 +31,7 @@ void IterativePreorder(struct node* node, vector<int>& po) {
         struct node* top = st.top();
         st.pop();
         po.push_back(top->data);
-        if (top->right) {
+        if (top->right) { // imp
             st.push(top->right);
         }
         if (top->left) {

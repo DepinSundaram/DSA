@@ -48,7 +48,7 @@ class Solution
             ds.pop_back();
         }
 
-    FindSumSequence(idx + 1, v, target - v[idx], ds, result);
+    FindSumSequence(idx + 1, v, target, ds, result);
 
     }
 public:

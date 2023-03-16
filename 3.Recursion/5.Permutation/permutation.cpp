@@ -92,32 +92,6 @@ Space Complexity: O(2^n * k) to store every subset of average length k. Auxiliar
               PermutationsOptimized(0, nums, ans);
               return ans;
     }
-
-
-    vector<int> nextPermutation(vector<int> &permutation, int n)
-    {
-        int size = n;
-        int k, l;
-
-        for (k = size - 2; k>=0; k--) {
-            if (permutation[k] < permutation[k + 1])
-                break;
-        }
-
-        if (k <=0) {
-            reverse(nums.begin(), nums.end());
-        } else {
-            for (l = n - 1; l > k; l--){
-                if (permutation[l] > permutation[k]) {
-                    break;
-                }
-            }
-        }
-        swap(permutation[k], permutation[l]);
-        reverse(permutation.begin() + k + 1, nums.end());
-
-        //  Write your code here.
-    }
 };
 
 int main() {
