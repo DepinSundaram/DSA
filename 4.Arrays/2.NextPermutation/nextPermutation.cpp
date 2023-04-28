@@ -13,29 +13,45 @@ next_permutation : find next lexicographically greater permutation
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+
+/*
+1) Find break
+1 2 3 6 5 4
+ break Indx value is at 3
+2) Swap with mim other availbale
+    1 2 4 6 5 3
+
+3) sort BreakIdx + 1 till end
+1 2 4 3 5 6
+*/
 class Solution {
 public:
     void nextPermutation(std::vector<int>& nums) {
 
         int size = nums.size();
-        int j,k;
-        for (j = size - 2; j > 0; --j) {
-            if (nums[j] < nums[j+1]) {
+        int breakIndx = -1;
+
+        // Find BreakIndx
+        for (int i = size - 2; i >= 0; --i) {
+            if (nums[i] < nums[i + 1]) {
+                breakIndx = i;
                 break;
             }
         }
 
-        if (j == 0) {
-            std::reverse(nums.begin(), nums.end());
-        } else {
-            for (k = size - 1; k > j ; k--) {
-                if (nums[k] > nums[j]) {
-                    break;
-                }
+        if (breakIndx == -1) {
+            reverse(nums.begin(), nums.end());
+        }
+        // Find Next min
+        for (int i = size - 1; i > breakIndx; --i) {
+            if (nums[i] > nums[breakIndx]) {
+                std::swap(nums[i], nums[breakIndx]);
             }
         }
-        std::swap(nums[j], nums[k]);
-        std::reverse(nums.begin() + j + 1, nums.end());
+
+        // Sort rest element
+        std::sort(nums.begin() + breakIndx + 1, nums.end());
 
         for (auto num : nums) {
             std::cout << num;

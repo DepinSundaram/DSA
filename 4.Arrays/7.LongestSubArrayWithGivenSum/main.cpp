@@ -73,7 +73,7 @@ int getLongestSubarrayHash(vector<int> arr, long long K) {
         // cal the len and update the len
 
         if (mpp.find(rem) != mpp.end()) {
-            int clen = i = mpp[rem];
+            int clen = i - mpp[rem];
             len = max(len, clen);
         }
 
