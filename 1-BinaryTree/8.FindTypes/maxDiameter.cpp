@@ -36,6 +36,7 @@ int maxDia(node* root) {
     int dia = 0;
     CalculateMaxDiaUsingHeight(root, dia);
 }
+
 struct node * newNode(int data) {
     struct node * node = (struct node * ) malloc(sizeof(struct node));
     node -> data = data;
@@ -44,7 +45,6 @@ struct node * newNode(int data) {
 
     return (node);
 }
-
 
 
 int main() {

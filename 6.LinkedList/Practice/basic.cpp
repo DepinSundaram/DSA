@@ -10,11 +10,18 @@ struct Node {
 
 
 
+/* This is a C++ class for a singly linked list with functions to insert, reverse, print elements, and
+swap nodes. */
 class LL {
 
 public:
     LL() : m_root(nullptr), m_length(1) {}
 
+/**
+ * This function inserts a new node with a given value at the end of a linked list.
+ * 
+ * @param n The value to be inserted as a new node in the linked list.
+ */
     void Insert(int n) {
         Node* newLL = new Node(n);
         if (!m_root) {
@@ -29,6 +36,9 @@ public:
         m_length++;
     }
 
+/**
+ * The Reverse function reverses the order of a linked list.
+ */
     void Reverse() {
 
         Node* prev = nullptr;
@@ -47,6 +57,9 @@ public:
     }
 
 
+/**
+ * This function prints the values of all elements in a linked list.
+ */
     void PrintElements() {
         Node* temp = m_root;
 

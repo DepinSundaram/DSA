@@ -8,6 +8,17 @@ Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
 
 class Solution {
 public:
+/**
+ * The function generates Pascal's triangle up to a given number of rows and returns it as a vector of
+ * vectors.
+ * 
+ * @param numRows The input parameter `numRows` is an integer that specifies the number of rows to
+ * generate in the Pascal's triangle.
+ * 
+ * @return The function `generate` returns a 2D vector of integers, where each row represents a row of
+ * Pascal's triangle and each element in the row represents a value in that row. The number of rows in
+ * the triangle is determined by the input parameter `numRows`.
+ */
     vector<vector<int>> generate(int numRows) {
         vector<vector<int> > r(numRows);
         for (int i = 0; i < numRows; i++) {

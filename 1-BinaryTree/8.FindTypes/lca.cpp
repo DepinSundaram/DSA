@@ -15,6 +15,18 @@ struct node
     }
 };
 
+/**
+ * The function finds the lowest common ancestor of two nodes in a binary tree.
+ * 
+ * @param root The root node of the binary tree.
+ * @param p The first node for which we want to find the lowest common ancestor (LCA) in the binary
+ * tree.
+ * @param q The parameter "q" in the given code represents a node in a binary tree. It is used to find
+ * the lowest common ancestor (LCA) of two nodes "p" and "q" in the binary tree.
+ * 
+ * @return a pointer to the lowest common ancestor (LCA) of two nodes, p and q, in a binary tree with
+ * root node "root".
+ */
 node* LCA(node* root, node* p, node* q) {
     if (root == NULL || root == p || root == q) {
         return root;
