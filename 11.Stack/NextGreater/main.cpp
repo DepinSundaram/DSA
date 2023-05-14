@@ -49,7 +49,7 @@ vector<int> nextGreaterElementsCircular(int arr[], int size) {
 int main () {
 
     int arr[] = {5,7,1,2,6,0};
-    vector < int > res = nextGreaterElementsCircular(arr, 6);
+    vector < int > res = nextGreaterElements(arr, 6);
     for (auto r : res) {
         std::cout << r << " ";
     }
